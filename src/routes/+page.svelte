@@ -1,70 +1,60 @@
 <script lang="ts">
-	import { LightSwitch } from '@skeletonlabs/skeleton';
-	import FilterButton from './filterButton.svelte';
+  import { LightSwitch } from "@skeletonlabs/skeleton";
+  import FilterButton from "../lib/components/filterButton.svelte";
+  import Popup from "../lib/components/popup.svelte";
 
+  let showPopup: boolean = true;
 
-	import { clickOutside } from './clickOutside';
-	import Popup from './popup.svelte';
-	let showPopup: bool = true
-
-	function handleClickEvent() {
-		showPopup = false;
-		console.log("Clicked outside the node")
-	}
+  function handleClickEvent() {
+    showPopup = !showPopup;
+  }
 </script>
 
-<div class="container card pt-8 mt-4  max-w-[50%]      mx-auto flex flex-col justify-center items-center">
-	<div class=" mb-8 space-y-5">
-		<h1 class="h1">Tradingbro.io Application</h1>
+<div
+  class="container card mx-auto mt-4 flex max-w-[90%] flex-col items-center justify-center !bg-gray-50 px-5 pt-8 dark:!bg-[#2C3753] md:max-w-[70%] lg:max-w-[50%]"
+>
+  <div class="mb-8 space-y-5">
+    <h1 class="h1">Tradingbro.io Application</h1>
 
-		<div class="flex py-12 gap-4   ">
-			Lightswitch<LightSwitch
-				ring="ring-white"
-				width="w-[48px]"
-			/>
-		
+    <div class="flex gap-4 py-12">
+      Lightswitch<LightSwitch ring="ring-white" width="w-[48px]" />
+    </div>
 
+    <div>
+      The figma file can be found
+      <a
+        class="underline"
+        href="https://www.figma.com/file/elhS7rfboC3aVdUoa19lJ5/tradingbro.io-(2)?type=design&node-id=101%3A2934&t=8BraDmbdqSoVPbAr-1"
+        >Here</a
+      >
 
-		</div > 
+      <p class="">The tasks can be found at the readme of the repo</p>
 
-		<div>
-			The figma file can be found 
-			<a class="underline" href="https://www.figma.com/file/elhS7rfboC3aVdUoa19lJ5/tradingbro.io-(2)?type=design&node-id=101%3A2934&t=8BraDmbdqSoVPbAr-1">Here</a>
+      <p class="mb-8 mt-4">
+        Fork the repo and let me know once you submitted your branch
+      </p>
+      <hr />
+    </div>
 
-			<p class="">The tasks can be found at the readme of the repo <a href=""></a> </p>
+    <h2 class="text-2xl">Button</h2>
+    <div
+      class="card mb-12 mr-auto flex gap-4 border bg-white p-4 dark:border-surface-700"
+    >
+      <FilterButton title="Filters" target="filterPopup" />
+      <FilterButton title="Columns" target="columnPopup" />
+    </div>
 
-			<p class="mt-4 mb-8">Fork the repo and let me know once you submitted your branch</p>
-			<hr>
+    <hr />
+    <h2 class="my-4 text-2xl">Popup</h2>
 
-
-
-		</div>
-
-			<h2 class="text-2xl" >Button</h2>
-		<div class="card mb-12 gap-4  flex mr-auto  border-2 p-4 ">
-			<FilterButton title="Columns" target="columnPopup" />
-			<FilterButton title="Filters" target="filterPopup" />
-		</div>
-
-		<hr>
-		<h2  class=" my-4 text-2xl">
-			Popup
-		</h2>
-
-
-		{#if showPopup}
-		<div use:clickOutside={handleClickEvent}
-		 class="a">
-			<Popup />
-		</div>
-		{/if}
-
-
-
-
-
-
-	</div>
-
-
+    {#if showPopup}
+      <Popup on:closePopup={handleClickEvent} />
+    {:else}
+      <button
+        on:click={handleClickEvent}
+        class="btn border-2 border-anti-flash-white bg-white font-medium text-old-lavender hover:border-gray-300 dark:border-transparent dark:bg-independence dark:text-ghost-white dark:hover:bg-white/10"
+        >Show popup</button
+      >
+    {/if}
+  </div>
 </div>
