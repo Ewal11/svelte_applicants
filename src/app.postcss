@@ -3,7 +3,20 @@ html,
 body {
   @apply h-fit min-h-[100%];
 }
-/* 
-body {
-  @apply min-h-fit;
-} */
+
+[data-popup] {
+  transition-property: opacity shadow !important;
+  transition-duration: 80ms !important;
+}
+
+.listbox-label-content {
+  @apply ml-3 text-[15.77px] font-medium;
+}
+
+.listbox-label-lead {
+  @apply flex;
+}
+
+.listbox-item {
+  @apply !px-5 !py-3;
+}

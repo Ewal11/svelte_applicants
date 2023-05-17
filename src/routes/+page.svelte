@@ -11,7 +11,7 @@
 </script>
 
 <div
-  class="container card mx-auto mt-4 flex max-w-[50%] flex-col items-center justify-center !bg-gray-50 pt-8 dark:!bg-[#2C3753]"
+  class="container card mx-auto mt-4 flex max-w-[90%] flex-col items-center justify-center !bg-gray-50 px-5 pt-8 dark:!bg-[#2C3753] md:max-w-[70%] lg:max-w-[50%]"
 >
   <div class="mb-8 space-y-5">
     <h1 class="h1">Tradingbro.io Application</h1>

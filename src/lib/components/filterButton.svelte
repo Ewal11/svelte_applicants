@@ -38,7 +38,7 @@
 
 {#if target === "filterPopup"}
   <div
-    class="shadow-custom bg-white dark:bg-independence"
+    class="list-filters bg-white dark:bg-independence"
     data-popup="filterPopup"
   >
     <ListBox rounded="rounded-none">
@@ -65,7 +65,7 @@
   </div>
 {:else}
   <div
-    class="shadow-custom bg-white dark:bg-independence"
+    class="list-filters bg-white dark:bg-independence"
     data-popup="columnPopup"
   >
     <ListBox rounded="rounded-none">
@@ -93,24 +93,7 @@
 {/if}
 
 <style lang="postcss">
-  :global([data-popup]) {
-    transition-property: opacity shadow !important;
-    transition-duration: 80ms !important;
-  }
-
-  :global(.listbox-label-content) {
-    @apply ml-3 text-[15.77px] font-medium;
-  }
-
-  :global(.listbox-label-lead) {
-    @apply flex;
-  }
-
-  :global(.listbox-item) {
-    @apply !px-5 !py-3;
-  }
-
-  .shadow-custom {
+  .list-filters {
     box-shadow: 5.7086615562438965px 4.566929340362549px 31.968505859375px 0px
       #00000014;
 
