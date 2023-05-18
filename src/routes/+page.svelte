@@ -58,7 +58,14 @@
 
     {#if showPopup}
       <div use:clickOutside on:click_outside={handleClickEvent} class="a">
-        <Popup />
+        <Popup
+		title="Fastest Funds to Most Banks " 
+		lastSeen="(Last seen: 14:32 02.05.2023)"
+		status="Offiline"
+		on:closed={()=>{ 
+			console.log('close event fired')
+			showPopup=false;
+			}}/>
       </div>
     {/if}
   </div>
